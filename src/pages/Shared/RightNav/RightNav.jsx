@@ -1,6 +1,13 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { Button, ListGroup } from "react-bootstrap";
+import {
+  FaGoogle,
+  FaGithub,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
+import QZone from "../QZone/QZone";
 
 const RightNav = () => {
   return (
@@ -12,6 +19,25 @@ const RightNav = () => {
       <Button variant="outline-secondary">
         <FaGithub></FaGithub> Login with Github
       </Button>
+
+      <div>
+        <h4>Find us on</h4>
+        <ListGroup>
+          <ListGroup.Item>
+            <FaFacebookF></FaFacebookF>
+            <>Facebook</>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <FaTwitter></FaTwitter>
+            Twitter
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <FaInstagram></FaInstagram>Instagram
+          </ListGroup.Item>
+        </ListGroup>
+      </div>
+
+      <QZone></QZone>
     </div>
   );
 };
