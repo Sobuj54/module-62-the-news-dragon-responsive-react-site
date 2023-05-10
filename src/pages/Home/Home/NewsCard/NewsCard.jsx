@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   const { _id, details, title, image_url } = news;
@@ -10,7 +11,16 @@ const NewsCard = ({ news }) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Img variant="top" src={image_url} />
-        <Card.Text>{details}</Card.Text>
+        <Card.Text>
+          {details.length < 250 ? (
+            <>{details}</>
+          ) : (
+            <>
+              {details.slice(0, 250)}...
+              <Link to={`/news/${_id}`}>Show more</Link>
+            </>
+          )}
+        </Card.Text>
       </Card.Body>
       <Card.Footer className="text-muted">2 days ago</Card.Footer>
     </Card>
