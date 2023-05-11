@@ -1,3 +1,4 @@
+import moment from "moment/moment";
 import React from "react";
 import { Image } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
@@ -10,10 +11,10 @@ const NewsCard = ({ news }) => {
     <Card className="mb-4">
       <Card.Header className="d-flex">
         <Image style={{ height: "40px" }} src={author?.img} roundedCircle />
-        <div>
-          <p>{author?.name}</p>
+        <div className="ps-2">
+          <p className="mb-0">{author?.name}</p>
           <p>
-            <small>{author.published_date}</small>
+            <small>{moment(author?.published_date).format("YYYY-MM-DD")}</small>
           </p>
         </div>
       </Card.Header>
