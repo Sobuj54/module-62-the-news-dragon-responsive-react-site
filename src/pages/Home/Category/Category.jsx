@@ -8,7 +8,7 @@ const Category = () => {
 
   return (
     <div>
-      <h2>categories : {newsCategory.length}</h2>
+      {id && <h2>categories : {newsCategory.length}</h2>}
       {newsCategory.map((news) => (
         <NewsCard key={news._id} news={news}></NewsCard>
       ))}
