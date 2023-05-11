@@ -3,19 +3,24 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { FaRegBookmark, FaShareAlt } from "react-icons/fa";
 
 const NewsCard = ({ news }) => {
   const { _id, details, title, image_url, author } = news;
 
   return (
     <Card className="mb-4">
-      <Card.Header className="d-flex">
+      <Card.Header className="d-flex align-items-center">
         <Image style={{ height: "40px" }} src={author?.img} roundedCircle />
-        <div className="ps-2">
+        <div className="ps-2 flex-grow-1">
           <p className="mb-0">{author?.name}</p>
           <p>
             <small>{moment(author?.published_date).format("YYYY-MM-DD")}</small>
           </p>
+        </div>
+        {/* icons div */}
+        <div>
+          <FaRegBookmark></FaRegBookmark> <FaShareAlt></FaShareAlt>
         </div>
       </Card.Header>
       <Card.Body>
