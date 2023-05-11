@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../../assets/logo.png";
 import moment from "moment/moment";
 import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { FaUserCircle } from "react-icons/fa";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <Container>
       <div className="text-center">
@@ -37,9 +41,17 @@ const Header = () => {
               <Nav.Link href="#pricing">Career</Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">Login</Nav.Link>
+              {user && (
+                <Nav.Link>
+                  <FaUserCircle style={{ fontSize: "1.5rem" }}></FaUserCircle>
+                </Nav.Link>
+              )}
               <Nav.Link eventKey={2} href="#memes">
-                <Button variant="secondary">Secondary</Button>
+                {user ? (
+                  <Button variant="secondary">Logout</Button>
+                ) : (
+                  <Link to="/login">Login</Link>
+                )}
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
