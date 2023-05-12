@@ -30,7 +30,7 @@ const Register = () => {
   return (
     <Container className="w-25 mx-auto">
       <Form onSubmit={handleRegister}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
@@ -39,7 +39,7 @@ const Register = () => {
             placeholder="Enter name"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" controlId="formBasicPhoto">
           <Form.Label>Photo URL</Form.Label>
           <Form.Control
             type="text"
