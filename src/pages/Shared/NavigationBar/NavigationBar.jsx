@@ -41,7 +41,7 @@ const NavigationBar = () => {
                 </Button>
               ) : (
                 <Button variant="secondary">
-                  <Link className="text-decoration-none text-white" to="/">
+                  <Link className="text-decoration-none text-white" to="/login">
                     Login
                   </Link>
                 </Button>
