@@ -10,7 +10,8 @@ import {
   FaShareAlt,
   FaStar,
 } from "react-icons/fa";
-import Rating from "react-rating";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const NewsCard = ({ news }) => {
   const { _id, details, title, image_url, author, rating, total_view } = news;
@@ -45,15 +46,14 @@ const NewsCard = ({ news }) => {
         </Card.Text>
       </Card.Body>
       <Card.Footer className="text-muted d-flex">
-        <div className="flex-grow-1">
+        <div className="flex-grow-1 d-flex align-items-center">
           {/* readonly attribute fixes the ratings and doesn't let the user change it  */}
           <Rating
-            readonly
-            placeholderRating={rating.number}
-            emptySymbol={<FaRegStar></FaRegStar>}
-            placeholderSymbol={<FaStar className="text-warning"></FaStar>}
-            fullSymbol={<FaStar></FaStar>}></Rating>
-          {rating.number}
+            style={{ maxWidth: 100 }}
+            value={Math.round(rating?.number) || 0}
+            readOnly
+          />
+          <span className="ms-2">{rating?.number}</span>
         </div>
         <div>
           <FaEye></FaEye>
